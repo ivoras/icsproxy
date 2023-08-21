@@ -14,7 +14,7 @@ import (
 
 var RE_TZ = regexp.MustCompile(`(?s)BEGIN:VTIMEZONE.+END:VTIMEZONE`)
 
-func handleRequestON(w http.ResponseWriter, r *http.Request) {
+func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// log.Println("new req", r.RemoteAddr, r.Header.Get("X-Forwarded-For"))
 	calendarURL := os.Getenv("ICAL_URL")
 
@@ -53,6 +53,10 @@ func main() {
 	if path == "" {
 		path = "/ical"
 	}
-	http.HandleFunc(path, handleRequestON)
-	log.Fatal(http.ListenAndServe("127.0.0.1:2015", nil))
+	listenAddress := os.Getenv("SERVER_LISTEN_ADDRESS")
+	if listenAddress == "" {
+		listenAddress = "0.0.0.0:80"
+	}
+	http.HandleFunc(path, handleRequest)
+	log.Fatal(http.ListenAndServe(listenAddress, nil))
 }

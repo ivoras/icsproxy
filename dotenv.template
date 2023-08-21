@@ -6,3 +6,6 @@ ICAL_URL="..."
 
 # The path which the web server will respond to.
 SERVER_PATH="/ical"
+
+# The address on which the HTTP server will listen
+SERVER_LISTEN_ADDRESS="0.0.0.0:80"

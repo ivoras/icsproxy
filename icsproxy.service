@@ -1,0 +1,12 @@
+[Unit]
+Description=Personal ICS proxy
+
+[Service]
+ExecStart=/srv/icsproxy/icsproxy
+WorkingDirectory=/srv/icsproxy
+User=ivoras
+Group=ivoras
+
+[Install]
+WantedBy=multi-user.target
+

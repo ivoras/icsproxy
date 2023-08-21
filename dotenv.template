@@ -1,0 +1,8 @@
+# Make a new file named .env based on this template
+
+
+# Get thisURL from Outlook or whatever, if it's from Outlook, it usually ends with reachcalendar.ics ...
+ICAL_URL="..."
+
+# The path which the web server will respond to.
+SERVER_PATH="/ical"

@@ -1,7 +1,7 @@
 FROM golang:1.21-alpine
 
-COPY . /srv/icsproxy
-RUN rm .env
+COPY *.go go.* /srv/icsproxy
+WORKDIR /srv/icsproxy
 RUN go build
 
 CMD /srv/icsproxy/icsproxy

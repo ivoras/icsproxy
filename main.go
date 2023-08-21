@@ -46,7 +46,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 func main() {
 	godotenv.Load()
 	if os.Getenv("ICAL_URL") == "" {
-		log.Println("The ICAL_URL env var must be present either inthe environment or .env")
+		log.Println("The ICAL_URL env var must be present either in the environment or .env")
 		os.Exit(1)
 	}
 	path := os.Getenv("SERVER_PATH")
